@@ -1,0 +1,15 @@
+{{ with .Params.sources }}
+<h3>Sources:</h3>
+<dl class="sources">
+  {{ range . }}
+    <dt>
+      <a href="{{ .url }}" target="_blank" rel="noopener">
+        {{ .title }}
+      </a>
+    </dt>
+    {{ with .note }}
+      <dd>{{ . }}</dd>
+    {{ end }}
+  {{ end }}
+</dl>
+{{ end }}
