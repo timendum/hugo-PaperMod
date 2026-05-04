@@ -44,12 +44,26 @@
   {{- end }}
 
   <footer class="post-footer">
+    {{- $argomenti := .Language.Params.Taxonomies.argomenti | default "argomenti" }}
+    {{- if ($.GetTerms $argomenti)}}
+      <div class="tags"><h3>Argomenti:</h3>
+        <ul class="post-tags">
+          {{- range ($.GetTerms $argomenti) }}
+          <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+          {{- end }}
+        </ul>
+      </div>
+    {{- end }}
     {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
-    <ul class="post-tags">
-      {{- range ($.GetTerms $tags) }}
-      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
-      {{- end }}
-    </ul>
+    {{- if ($.GetTerms $tags)}}
+      <div class="tags"><h3>Tags:</h3>
+        <ul class="post-tags">
+          {{- range ($.GetTerms $tags) }}
+          <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+          {{- end }}
+        </ul>
+      </div>
+    {{- end }}
     {{- if (.Param "ShowPostNavLinks") }}
     {{- partial "post_nav_links.html" . }}
     {{- end }}

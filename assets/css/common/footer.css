@@ -54,3 +54,11 @@
 .top-link:hover {
     color: var(--primary);
 }
+
+.tags {
+    display: flex;
+    align-items: center
+}
+.tags h3 {
+    margin-right: 0.5rem;
+}

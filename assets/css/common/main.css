@@ -79,11 +79,11 @@ pre:hover .copy-code {
 }
 
 .sources > div::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: currentColor;
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: currentColor;
 }
 
 
