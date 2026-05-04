@@ -1,15 +1,21 @@
 {{ with .Params.sources }}
-<h3>Sources:</h3>
+<section aria-labelledby="sources">
+<h3>{{- i18n "sources" }}:</h3>
 <dl class="sources">
   {{ range . }}
-    <dt>
-      <a href="{{ .url }}" target="_blank" rel="noopener">
-        {{ .title }}
-      </a>
-    </dt>
-    {{ with .note }}
-      <dd>{{ . }}</dd>
-    {{ end }}
+    <div>
+      <dt>
+        {{ if .url }}
+          <a href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a>{{ with .note }},{{ end }}
+        {{ else }}
+          {{ .title }}{{ with .note }},{{ end }}
+        {{ end }}
+      </dt>
+      {{ with .note }}
+        <dd>{{ . }}</dd>
+      {{ end }}
+    </div>
   {{ end }}
 </dl>
+</section>
 {{ end }}

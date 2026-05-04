@@ -62,25 +62,26 @@
 }
 
 .md-content dl {
-    display: flex;
-    flex-wrap: wrap;
     margin: 0;
+    padding: 0.5rem 0;
 }
 
 .md-content dt {
-    width: 25%;
+    float: left;
+    clear: left;
     font-weight: 700;
+    color: var(--content);
+    margin-right: 0.5rem;
+}
+
+.md-content dt::after {
+    content: ":";
 }
 
 .md-content dd {
-    width: 75%;
     margin-inline-start: 0;
-    padding-inline-start: 10px;
-}
-
-.md-content dd~dd,
-.md-content dt~dt {
-    margin-top: 10px;
+    margin-bottom: 0.4rem;
+    color: var(--secondary);
 }
 
 .md-content table {
@@ -98,6 +99,15 @@
 .md-content table th {
     text-align: start;
 }
+
+/* Hide thead when ALL th are empty */
+.md-content table thead th:empty {
+  display: none;
+}
+.md-content table thead:not(:has(th:not(:empty))) {
+  display: none;
+}
+
 
 .md-content table:not(.highlighttable) td code:only-child {
     margin: auto 0;

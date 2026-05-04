@@ -64,3 +64,30 @@ div.highlight:hover .copy-code,
 pre:hover .copy-code {
     display: block;
 }
+
+.sources a {
+    text-decoration: underline;
+}
+
+.sources > div {
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+    margin: 0.25rem 0;
+    padding-left: 1.2rem;
+    position: relative;
+}
+
+.sources > div::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: currentColor;
+}
+
+
+.sources dd {
+    margin: 0;
+    color: var(--secondary);
+}
