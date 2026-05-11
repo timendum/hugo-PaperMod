@@ -35,7 +35,8 @@
 {{- partial "extend_footer.html" . }}
 
 <script>
-    let menu = document.getElementById('menu');
+window.addEventListener("load", (event) => {
+    const menu = document.getElementById('menu');
     if (menu) {
         // Set the scroll position
         const scrollPosition = localStorage.getItem("menu-scroll-position");
@@ -66,12 +67,13 @@
             }
         });
     });
-
+});
 </script>
 
 {{- if (not site.Params.disableScrollToTop) }}
 <script>
-    var toplink = document.getElementById("top-link");
+window.addEventListener("load", (event) => {
+    const toplink = document.getElementById("top-link");
     window.onscroll = function () {
         const scrollThreshold = window.innerHeight;
         if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
@@ -80,12 +82,13 @@
             toplink.classList.add("hidden");
         }
     };
-
+});
 </script>
 {{- end }}
 
 {{- if (not site.Params.disableThemeToggle) }}
 <script>
+window.addEventListener("load", (event) => {
     document.getElementById("theme-toggle").addEventListener("click", () => {
         const html = document.querySelector("html");
         if (html.dataset.theme === "dark") {
@@ -95,13 +98,14 @@
             html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
-    })
-
+    });
+});
 </script>
 {{- end }}
 
 {{- if (and (eq .Kind "page") (ne .Layout "archives") (ne .Layout "search") (.Param "ShowCodeCopyButtons")) }}
 <script>
+window.addEventListener("load", (event) => {
     document.querySelectorAll('pre > code').forEach((codeblock) => {
         const container = codeblock.parentNode.parentNode;
 
@@ -147,5 +151,6 @@
             codeblock.parentNode.appendChild(copybutton);
         }
     });
+});
 </script>
 {{- end }}
