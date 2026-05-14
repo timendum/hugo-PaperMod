@@ -13,14 +13,14 @@
 
 <ul class="terms-tags">
     {{- $type := .Type }}
-    {{- range $key, $value := .Data.Terms.Alphabetical }}
-    {{- $name := .Name }}
-    {{- $count := .Count }}
-    {{- with site.GetPage (printf "/%s/%s" $type $name) }}
-    <li>
-        <a href="{{ .Permalink }}">{{ .LinkTitle }} <span class="archive-count">({{ $count }})</span> </a>
-    </li>
-    {{- end }}
+        {{- range $key, $value := .Data.Terms.Alphabetical }}
+            {{- $name := .Name }}
+            {{- $count := .Count }}
+            {{- with site.GetPage (printf "/%s/%s" $type $name) }}
+            <li>
+                <a href="{{ .Permalink }}">{{ .LinkTitle }} ({{ $count }})</a>
+            </li>
+        {{- end }}
     {{- end }}
 </ul>
 

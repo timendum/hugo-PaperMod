@@ -43,6 +43,8 @@
   {{ partial "sources.html" . }}
   {{- end }}
 
+  {{- partial "extend_post_content.html" . }}
+
   <footer class="post-footer">
     {{- $argomenti := .Language.Params.Taxonomies.argomenti | default "argomenti" }}
     {{- if ($.GetTerms $argomenti)}}

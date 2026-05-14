@@ -64,6 +64,10 @@
     display: inline-flex;
 }
 
+.nav-sep {
+    color: var(--secondary);
+}
+
 .lang-menu * {
     display: inherit;
     min-height: inherit;
